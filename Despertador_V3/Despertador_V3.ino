@@ -37,8 +37,8 @@ byte icono_alarma[] = {
 byte rowPins[ROWS] = {7, 2, 3, 5}; //connect to the row pinouts of the keypad
 byte colPins[COLS] = {6, 8, 4}; //connect to the column pinouts of the keypad
 
-int date_hour = 12;
-int date_min = 37;
+int date_hour = 5;
+int date_min = 50;
 bool alarm = true;
 
 Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
@@ -168,10 +168,11 @@ void update_alarma()
 
 
   lcd.noBlink();
+  delay(500);
   lcd.clear();
   lcd.setCursor(5,0);
   lcd.print("Guardado!");
-  delay(1000);
+  delay(500);
   lcd.clear();
 
 }
@@ -202,18 +203,18 @@ void Time(DateTime now)
   String AL = String(date_hour) + ":" + String(date_min);
   lcd.setCursor(0, 2);
   lcd.print(Time);
-  lcd.setCursor(10, 2);
-  lcd.print(date);
   lcd.setCursor(0, 3);
-  lcd.print("Alarma:");
+  lcd.print(date);
+  lcd.setCursor(11, 2);
+  lcd.print("A1=");
   lcd.print(AL);
   if (alarm)
   {
-    lcd.setCursor(19, 3);
+    lcd.setCursor(19, 2);
     lcd.write(0);
   }
   else {
-    lcd.setCursor(19, 3);
+    lcd.setCursor(19, 2);
     lcd.print(" ");
   }
 
