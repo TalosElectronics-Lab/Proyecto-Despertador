@@ -10,7 +10,7 @@ void setup () {
   Wire.begin();
   RTC.begin();
   //Comentar linea una vez que la hora y la fecha sean las correctas, luego subir el programa de nuevo
-  RTC.adjust(DateTime(__DATE__, __TIME__));
+  //RTC.adjust(DateTime(__DATE__, __TIME__));
 
 }
 
